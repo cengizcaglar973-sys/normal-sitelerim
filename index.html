@@ -1,155 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fenerbahçe Yıldız Animasyonu</title>
-
-<style>
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #0a1a3a, #000814);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow: hidden;
-}
-
-.container {
-  text-align: center;
-}
-
-.stars {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  font-size: 46px;
-}
-
-.star {
-  color: #222;
-  transition: all 0.4s ease;
-}
-
-.star.active {
-  background: linear-gradient(45deg, gold, #001f5b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 18px gold;
-}
-
-#fbText {
-  margin-top: 25px;
-  font-size: 38px;
-  font-weight: bold;
-  opacity: 0;
-  letter-spacing: 3px;
-  color: #ffd700;
-  text-shadow: 0 0 25px #001f5b;
-  transition: opacity 1s ease;
-}
-
-#fbText.show {
-  opacity: 1;
-}
-
-/* Mobil */
-@media (max-width: 600px) {
-  .stars {
-    font-size: 36px;
-  }
-  #fbText {
-    font-size: 28px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-  <div class="stars">
-    <span class="star">★</span>
-    <span class="star">★</span>
-    <span class="star">★</span>
-    <span class="star">★</span>
-    <span class="star">★</span>
-  </div>
-
-  <div id="fbText">FENERBAHÇE</div>
-</div>
-
-<!-- Ses -->
-<audio id="clickSound">
-  <source src="https://assets.mixkit.co/sfx/preview/mixkit-light-button-2580.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const stars = document.querySelectorAll(".star");
-const text = document.getElementById("fbText");
-const sound = document.getElementById("clickSound");
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function playSound() {
-  sound.currentTime = 0;
-  sound.play();
-}
-
-async function animateStars() {
-  while (true) {
-
-    // SAĞDAN YAN
-    for (let i = stars.length - 1; i >= 0; i--) {
-      stars[i].classList.add("active");
-      playSound();
-      await sleep(300);
-    }
-
-    text.classList.add("show");
-    await sleep(800);
-
-    // SAĞDAN SÖN
-    for (let i = stars.length - 1; i >= 0; i--) {
-      stars[i].classList.remove("active");
-      await sleep(250);
-    }
-
-    text.classList.remove("show");
-    await sleep(600);
-
-    // SOLDAN YAN
-    for (let i = 0; i < stars.length; i++) {
-      stars[i].classList.add("active");
-      playSound();
-      await sleep(300);
-    }
-
-    text.classList.add("show");
-    await sleep(800);
-
-    // SOLDAN SÖN
-    for (let i = 0; i < stars.length; i++) {
-      stars[i].classList.remove("active");
-      await sleep(250);
-    }
-
-    text.classList.remove("show");
-    await sleep(1000);
-  }
-}
-
-animateStars();
-</script>
-
-</body>
-</html>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cengiz | Kişisel Web Sitesi</title>
@@ -352,14 +203,155 @@ animateStars();
     <span class="fb-sari">Fener</span><span class="fb-laci">bahçeliyim</span>.
   </p>
 
-  <div class="render">
-    <small>rendering ideas…</small>
-    <div class="bar"><span></span></div>
-    <div class="stars">
-      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fenerbahçe Yıldız Animasyonu</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0a1a3a, #000814);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  font-size: 46px;
+}
+
+.star {
+  color: #222;
+  transition: all 0.4s ease;
+}
+
+.star.active {
+  background: linear-gradient(45deg, gold, #001f5b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px gold;
+}
+
+#fbText {
+  margin-top: 25px;
+  font-size: 38px;
+  font-weight: bold;
+  opacity: 0;
+  letter-spacing: 3px;
+  color: #ffd700;
+  text-shadow: 0 0 25px #001f5b;
+  transition: opacity 1s ease;
+}
+
+#fbText.show {
+  opacity: 1;
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+  .stars {
+    font-size: 36px;
+  }
+  #fbText {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="stars">
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
   </div>
-</header>
+
+  <div id="fbText">FENERBAHÇE</div>
+</div>
+
+<!-- Ses -->
+<audio id="clickSound">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-light-button-2580.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const stars = document.querySelectorAll(".star");
+const text = document.getElementById("fbText");
+const sound = document.getElementById("clickSound");
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function playSound() {
+  sound.currentTime = 0;
+  sound.play();
+}
+
+async function animateStars() {
+  while (true) {
+
+    // SAĞDAN YAN
+    for (let i = stars.length - 1; i >= 0; i--) {
+      stars[i].classList.add("active");
+      playSound();
+      await sleep(300);
+    }
+
+    text.classList.add("show");
+    await sleep(800);
+
+    // SAĞDAN SÖN
+    for (let i = stars.length - 1; i >= 0; i--) {
+      stars[i].classList.remove("active");
+      await sleep(250);
+    }
+
+    text.classList.remove("show");
+    await sleep(600);
+
+    // SOLDAN YAN
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].classList.add("active");
+      playSound();
+      await sleep(300);
+    }
+
+    text.classList.add("show");
+    await sleep(800);
+
+    // SOLDAN SÖN
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].classList.remove("active");
+      await sleep(250);
+    }
+
+    text.classList.remove("show");
+    await sleep(1000);
+  }
+}
+
+animateStars();
+</script>
+
+</body>
+</html>
+
 
 <main>
   <section class="grid">
