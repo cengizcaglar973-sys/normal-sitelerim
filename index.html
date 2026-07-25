@@ -127,6 +127,12 @@ main{
   transition:.7s;
 }
 
+/* Instagram için kritik düzeltme */
+.instagram-media{
+  max-width:100% !important;
+  border-radius:12px !important;
+}
+
 .card.show{
   opacity:1;
   transform:none;
@@ -212,7 +218,7 @@ footer{
       <span class="tag">CSS</span>
       <span class="tag">JavaScript</span>
       <span class="tag">C++</span>
-      <span class="tag">Kali Linux ile pihishing</span>
+      <span class="tag">Kali Linux ile phishing</span>
       <span class="tag">Video Editing</span>
       <span class="tag">Robotik</span>
     </div>
@@ -227,17 +233,17 @@ footer{
       </ul>
     </div>
 
+    <!-- INSTAGRAM KARTI -->
     <div class="card">
-      <h2>Dersler & Gerçekler</h2>
-      <ul>
-        <li>Matematik: Barışmaya çalışıyorum</li>
-        <li>Fen: Robotik kurtarıyor</li>
-        <li>Türkçe: Yazıyorum ama uzun</li>
-        <li>Sosyal: Ezberle–unut</li>
-        <li>İngilizce: Anlıyorum, konuşunca NPC</li>
-        <li>Din: Dinlerim, sınavda hüsran</li>
-      </ul>
-      <p><strong>Ben de bir LGS belalısıyım.</strong></p>
+      <h2>Instagram</h2>
+
+      <blockquote 
+        class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DbNmhlJSo6X/"
+        data-instgrm-version="14"
+        style="margin:auto;">
+      </blockquote>
+
     </div>
 
     <div class="card">
@@ -257,6 +263,9 @@ footer{
 <footer>
   © 2026 — Cengiz · Aksaray / Sultanhanı
 </footer>
+
+<!-- Instagram embed script -->
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <script>
 const cards=document.querySelectorAll('.card');
