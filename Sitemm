@@ -1,210 +1,202 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cengiz | Kişisel Site</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cengiz | Kişisel Site</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#020617;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --green:#22c55e;
-      --blue:#3b82f6;
-      --yellow:#fde047;
-      --navy:#1e3a8a;
-    }
+<style>
+:root{
+  --bg:#020617;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --green:#22c55e;
+  --blue:#3b82f6;
+  --yellow:#fde047;
+  --navy:#1e3a8a;
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
 
-    body{
-      margin:0;
-      font-family:'Inter',system-ui;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 10% -10%,rgba(59,130,246,.15),transparent 40%),
-        radial-gradient(1200px 600px at 110% 10%,rgba(34,197,94,.12),transparent 40%),
-        var(--bg);
-      overflow-x:hidden;
-    }
+body{
+  margin:0;
+  font-family:'Inter',system-ui;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.15), transparent 40%),
+    radial-gradient(1200px 600px at 110% 10%, rgba(34,197,94,.12), transparent 40%),
+    var(--bg);
+  overflow-x:hidden;
+}
 
-    header{
-      padding:100px 20px 70px;
-      text-align:center;
-      position:relative;
-    }
+header{
+  padding:100px 20px 70px;
+  text-align:center;
+  position:relative;
+}
 
-    .glow{
-      position:absolute;
-      inset:-20% -20% auto -20%;
-      height:60%;
-      background:conic-gradient(from 180deg,
-        rgba(34,197,94,.35),
-        rgba(59,130,246,.35),
-        rgba(34,197,94,.35));
-      filter:blur(120px);
-      opacity:.35;
-      z-index:-1;
-    }
+h1{
+  font-size:clamp(32px,4.5vw,54px);
+  margin:0 0 10px;
+  animation:fadeUp .9s both;
+}
 
-    h1{
-      font-size:clamp(32px,4.5vw,54px);
-      margin:0 0 10px;
-      animation:fadeUp .9s both;
-    }
+h1 span{
+  background:linear-gradient(135deg,#86efac,#60a5fa);
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-    h1 span{
-      background:linear-gradient(135deg,#86efac,#60a5fa);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
+header p{
+  max-width:850px;
+  margin:0 auto 14px;
+  color:var(--muted);
+  animation:fadeUp 1.1s both;
+}
 
-    header p{
-      max-width:850px;
-      margin:0 auto 14px;
-      color:var(--muted);
-      animation:fadeUp 1.1s both;
-    }
+.fb-sari{color:var(--yellow);font-weight:700}
+.fb-laci{color:var(--navy);font-weight:700}
 
-    .fb-sari{color:var(--yellow);font-weight:700}
-    .fb-laci{color:var(--navy);font-weight:700}
+.render{
+  margin:28px auto 0;
+  max-width:360px;
+}
 
-    .render{
-      margin:28px auto 0;
-      max-width:360px;
-    }
+.bar{
+  height:10px;
+  border-radius:99px;
+  background:#020617;
+  border:1px solid rgba(255,255,255,.12);
+  overflow:hidden;
+}
 
-    .bar{
-      height:10px;
-      border-radius:99px;
-      background:#020617;
-      border:1px solid rgba(255,255,255,.12);
-      overflow:hidden;
-    }
+.bar span{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  animation:load 4s forwards;
+}
 
-    .bar span{
-      display:block;
-      height:100%;
-      width:0;
-      background:linear-gradient(90deg,var(--green),var(--blue));
-      animation:load 4s forwards;
-    }
+.stars{
+  margin-top:12px;
+  font-size:20px;
+  letter-spacing:6px;
+}
 
-    .stars{
-      margin-top:12px;
-      font-size:20px;
-      letter-spacing:6px;
-    }
+.stars span{
+  opacity:.2;
+  transition:.4s;
+}
 
-    .stars span{
-      opacity:.2;
-      transition:.4s;
-    }
+.stars span.on{
+  opacity:1;
+  color:var(--yellow);
+}
 
-    .stars span.on{
-      opacity:1;
-      color:var(--yellow);
-    }
+.fb-logo{
+  margin-top:14px;
+  opacity:0;
+  transition:1s;
+  font-weight:800;
+  font-size:20px;
+}
 
-    .fb-logo{
-      margin-top:14px;
-      opacity:0;
-      transition:1s;
-      font-weight:800;
-      font-size:20px;
-    }
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px 100px;
+}
 
-    main{
-      max-width:1100px;
-      margin:auto;
-      padding:30px 20px 100px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:22px;
-    }
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:26px;
+  min-height:260px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.7s;
+}
 
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:26px;
-      min-height:260px;
-      opacity:0;
-      transform:translateY(30px);
-      transition:.7s;
-    }
+.card.show{
+  opacity:1;
+  transform:none;
+}
 
-    .card.show{
-      opacity:1;
-      transform:none;
-    }
+.card:hover{
+  transform:translateY(-4px) scale(1.02);
+}
 
-    .card:hover{
-      transform:translateY(-4px) scale(1.02);
-    }
+.tag{
+  display:inline-block;
+  padding:6px 10px;
+  margin:6px 6px 0 0;
+  border-radius:999px;
+  background:rgba(34,197,94,.14);
+  color:#86efac;
+  font-size:12px;
+}
 
-    .tag{
-      display:inline-block;
-      padding:6px 10px;
-      margin:6px 6px 0 0;
-      border-radius:999px;
-      background:rgba(34,197,94,.14);
-      color:#86efac;
-      font-size:12px;
-    }
+.links a{
+  display:block;
+  margin:10px 0;
+  color:#93c5fd;
+  text-decoration:none;
+  font-weight:600;
+}
 
-    .links a{
-      display:block;
-      margin:10px 0;
-      color:#93c5fd;
-      text-decoration:none;
-      font-weight:600;
-    }
+.editor-btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 26px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#22c55e,#3b82f6);
+  color:#020617;
+  font-weight:800;
+  text-decoration:none;
+}
 
-    footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      padding:26px 20px;
-      text-align:center;
-      color:var(--muted);
-    }
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:26px 20px;
+  text-align:center;
+  color:var(--muted);
+}
 
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(10px)}
-      to{opacity:1;transform:none}
-    }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
 
-    @keyframes load{
-      to{width:100%}
-    }
-  </style>
+@keyframes load{
+  to{width:100%}
+}
+</style>
 </head>
 
 <body>
+
 <header>
-  <div class="glow"></div>
-
   <h1>Merhaba, ben <span>Cengiz</span></h1>
-
   <p><strong>Aksaray / Sultanhanı</strong> — kod, edit ve okul üçgeninde takılırım.</p>
-
   <p>
     Kod ile edit arasında kaldım; ikisinin de bende bir üstünlüğü yok.
-    Teknolojiyi yakından takip ederim, özellikle yeni çıkan cihazlar radarımda.
+    Teknolojiyi yakından takip ederim.
     <span class="fb-sari">Fener</span><span class="fb-laci">bahçeliyim</span>.
   </p>
 
   <div class="render">
-    <small>rendering ideas…</small>
+    <small>rendering ideas...</small>
     <div class="bar"><span></span></div>
-
     <div class="stars">
       <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
     </div>
@@ -220,7 +212,7 @@
       <span class="tag">CSS</span>
       <span class="tag">JavaScript</span>
       <span class="tag">C++</span>
-      <span class="tag">BluSims</span>
+      <span class="tag">Kali Linux ile pihishing</span>
       <span class="tag">Video Editing</span>
       <span class="tag">Robotik</span>
     </div>
@@ -230,7 +222,7 @@
       <ul>
         <li>Arduino tabanlı ileri düzey projeler</li>
         <li>Otonom robot sistemleri</li>
-        <li>Ritimli edit videoları</li>
+        <li>İsteğe özel edit videoları</li>
         <li>Animasyonlu web arayüzleri</li>
       </ul>
     </div>
@@ -238,25 +230,28 @@
     <div class="card">
       <h2>Dersler & Gerçekler</h2>
       <ul>
-        <li>Matematik: 404 motivasyon</li>
+        <li>Matematik: Barışmaya çalışıyorum</li>
         <li>Fen: Robotik kurtarıyor</li>
         <li>Türkçe: Yazıyorum ama uzun</li>
-        <li>Sosyal: Ezberle–unut döngüsü</li>
+        <li>Sosyal: Ezberle–unut</li>
         <li>İngilizce: Anlıyorum, konuşunca NPC</li>
-        <li>Din: Dinlerim, sınavda heyecan</li>
+        <li>Din: Dinlerim, sınavda hüsran</li>
       </ul>
-      <p><strong>LGS belalısıyım.</strong></p>
+      <p><strong>Ben de bir LGS belalısıyım.</strong></p>
     </div>
 
     <div class="card">
       <h2>Bağlantılar</h2>
       <div class="links">
         <a href="https://www.youtube.com/@YT_CENGIZ_EDITS" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@cengiz_edits1" target="_blank">TikTok</a>
       </div>
     </div>
 
   </section>
+
+  <a class="editor-btn" href="https://nurses-catalogs-antarctica-lafayette.trycloudflare.com" target="_blank">
+    Sitenin düzenleyicisi ol
+  </a>
 </main>
 
 <footer>
@@ -264,30 +259,29 @@
 </footer>
 
 <script>
-  const cards=document.querySelectorAll('.card');
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('show');
-    });
-  },{threshold:.2});
-  cards.forEach(c=>io.observe(c));
+const cards=document.querySelectorAll('.card');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('show');
+  });
+},{threshold:.2});
+cards.forEach(c=>io.observe(c));
 
-  const stars=document.querySelectorAll('.stars span');
-  let i=0;
-
-  const starInterval=setInterval(()=>{
-    if(i<stars.length){
-      stars[i].classList.add('on');
-      i++;
-    }else{
-      clearInterval(starInterval);
-      const logo=document.createElement('div');
-      logo.className='fb-logo';
-      logo.innerHTML='<span style="color:#fde047">Fener</span><span style="color:#1e3a8a">bahçe</span>';
-      document.querySelector('.render').appendChild(logo);
-      setTimeout(()=>logo.style.opacity=1,100);
-    }
-  },700);
+const stars=document.querySelectorAll('.stars span');
+let i=0;
+const interval=setInterval(()=>{
+  if(i<stars.length){
+    stars[i].classList.add('on');
+    i++;
+  }else{
+    clearInterval(interval);
+    const logo=document.createElement('div');
+    logo.className='fb-logo';
+    logo.innerHTML='<span style="color:#fde047">Fener</span><span style="color:#1e3a8a">bahçe</span>';
+    document.querySelector('.render').appendChild(logo);
+    setTimeout(()=>logo.style.opacity=1,100);
+  }
+},600);
 </script>
 
 </body>
